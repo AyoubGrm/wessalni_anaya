@@ -10,4 +10,21 @@
 
 <ion-content padding>
 
+    <ion-item>
+        <ion-label color="primary" floating>depart de:</ion-label>
+        <ion-input></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label color="primary" floating>arrive à:</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+      <ion-item padding-top>
+          <ion-label>Date prevue:</ion-label>
+          <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
+        </ion-item>
+        <ion-item>
+            <ion-label>à:</ion-label>
+            <ion-datetime displayFormat="hh/mm" [(ngModel)]="mytime"></ion-datetime>
+          </ion-item>
+
 </ion-content>
