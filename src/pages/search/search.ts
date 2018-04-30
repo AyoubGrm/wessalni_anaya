@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the SearchPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import {  SearchItem } from '../../models/trajet-item/trajet-item.interface';
+
 
 @IonicPage()
 @Component({
@@ -15,11 +11,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class SearchPage {
 
+  searchItem={} as SearchItem;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SearchPage');
+  search(searchItem:SearchItem){
+    console.log(this.searchItem);
   }
-
 }

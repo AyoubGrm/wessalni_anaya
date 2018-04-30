@@ -2,7 +2,7 @@
 <ion-header>
 
   <ion-navbar color='primary'>
-    <ion-title>Search</ion-title>
+    <ion-title>Rechercher</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -12,19 +12,23 @@
 
     <ion-item>
         <ion-label color="primary" floating>depart de:</ion-label>
-        <ion-input></ion-input>
+        <ion-input type="text" [(ngModel)]="searchItem.ville_depart"></ion-input>
     </ion-item>
     <ion-item>
         <ion-label color="primary" floating>arrive à:</ion-label>
-        <ion-input></ion-input>
+        <ion-input type="text" [(ngModel)]="searchItem.ville_arrive" ></ion-input>
       </ion-item>
       <ion-item padding-top>
           <ion-label>Date prevue:</ion-label>
-          <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
+          <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="searchItem.date_prevue"></ion-datetime>
         </ion-item>
         <ion-item>
             <ion-label>à:</ion-label>
-            <ion-datetime displayFormat="hh/mm" [(ngModel)]="mytime"></ion-datetime>
+            <ion-datetime displayFormat="hh/mm" [(ngModel)]="searchItem.heure"></ion-datetime>
           </ion-item>
 
+          <button ion-button icon-start full (click)="search(searchItem)">
+              <ion-icon name="search"></ion-icon>
+              Rechercher
+            </button>
 </ion-content>

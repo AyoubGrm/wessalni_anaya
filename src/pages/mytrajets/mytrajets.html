@@ -1,0 +1,32 @@
+
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Mes Trajets</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <!-- <ul>
+        <li *ngFor="let item of items | async">
+           {{ item | json }}
+        </li>
+      </ul> -->
+
+  <ion-list>
+    <ion-item *ngFor="let item of items | async">
+      
+       Depart de : {{item.ville_depart}} <br>
+       Arrivé à : {{item.ville_arrive}}<br>
+       Date prevue : {{item.date_prevue}}<br>
+       à : {{item.heure}}<br>
+       Place Dispo : {{item.place}}<br>
+       Prix /place : {{item.prix}}<br>
+       plus d'info : {{item.plusinfo}}<br>
+       Preference : {{item.preference}} <br>
+  </ion-item>
+  </ion-list>
+
+</ion-content>
