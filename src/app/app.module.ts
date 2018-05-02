@@ -4,8 +4,6 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
-import {AngularFireList} from 'angularfire2/database';
-import {AngularFirestore} from 'angularfire2/firestore';
 import {AngularFireModule} from 'angularfire2';
 
 import { firebaseConfig } from './firebaseconf';
@@ -13,6 +11,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { AuthProvider } from '../providers/auth/auth';
 import { TrajetsPage } from '../pages/trajets/trajets';
+import { SearchresultPage } from '../pages/searchresult/searchresult';
 import { SearchPage } from '../pages/search/search';
 import { ProposePage } from '../pages/propose/propose';
 import { MytrajetsPage } from '../pages/mytrajets/mytrajets';
@@ -23,7 +22,8 @@ import { MytrajetsPage } from '../pages/mytrajets/mytrajets';
     TrajetsPage,
     SearchPage,
     ProposePage,
-    MytrajetsPage
+    MytrajetsPage,
+    SearchresultPage
   ],
   imports: [
     BrowserModule,
@@ -38,13 +38,14 @@ import { MytrajetsPage } from '../pages/mytrajets/mytrajets';
     TrajetsPage,
     SearchPage,
     ProposePage,
+    SearchresultPage,
     MytrajetsPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthProvider,AngularFirestore
+    AuthProvider
   ]
 })
 export class AppModule {}

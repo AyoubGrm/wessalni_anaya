@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
-import { Unsubscribe } from '@firebase/util';
 import firebase from 'firebase';
 
 import { TrajetItem } from '../../models/trajet-item/trajet-item.interface';
@@ -20,11 +19,17 @@ export class ProposePage {
     public navCtrl: NavController,
     public navParams: NavParams) 
     {
-    this.trajetItemref$ =this.database.list('trajet-list/'+firebase.auth().currentUser.uid+'/Proposer');
+    this.trajetItemref$ =this.database.list('trajet-list/Proposer/'+firebase.auth().currentUser.uid);
     }
 
   addtrajetitem(trajetItem:TrajetItem){
-    this.trajetItemref$.push(trajetItem);
+   // this.trajetItemref$.update(firebase.auth().currentUser.uid,trajetItem);
+   this.trajetItemref$.push(trajetItem);
+  }
+  edittrajetitem(trajetItem:TrajetItem){
+    var newPostKey = firebase.database().ref().child('trajet-list/Proposer').push().key;
+    firebase.database().ref(newPostKey).set(trajetItem);  
+    console.log(newPostKey);    
   }
 
 }
