@@ -23,11 +23,11 @@
     
     <ion-item>
         <ion-label color="primary" >depart de:</ion-label>
-        <ion-input (click)="showAddressModal()" type="text" [(ngModel)]="searchItem.ville_depart" ></ion-input>
+        <ion-input (click)="showAddressDepart()" type="text" [(ngModel)]="searchItem.ville_depart" ></ion-input>
     </ion-item>
     <ion-item>
         <ion-label color="primary" >arrive à:</ion-label>
-        <ion-input id="autocomplete2" type="text"  ></ion-input>
+        <ion-input (click)="showAddressArrive()" type="text" [(ngModel)]="searchItem.ville_arrive" ></ion-input>
       </ion-item>
       <ion-item padding-top>
           <ion-label>Date prevue:</ion-label>
@@ -42,7 +42,8 @@
               <ion-icon name="search"></ion-icon>
               Rechercher
             </button>
-            
+            <button ion-button icon-start  (click)="s()">kash haja
+            </button>
 
             <!-- <ion-list>
                 <ul>

@@ -13,7 +13,6 @@ import { AutocompletePage } from '../autocomplete/autocomplete';
 })
 
 export class SearchPage {
- //@ViewChild('search') searchElementRef: ElementRef;
   searchItem={} as SearchItem;
    public searchControl: FormControl;
     place:any;
@@ -27,28 +26,37 @@ export class SearchPage {
     let departde=this.modalCtrl.create(SearchresultPage,searchItem);
     departde.present();
   }
-  showAddressModal () {
+  s(){
+    console.log(this.searchItem.ville_depart);
+    console.log(this.searchItem.ville_arrive);
+  }
+  showAddressDepart () {
     let modal = this.modalCtrl.create(AutocompletePage);
-    let me = this;
     modal.onDidDismiss(data => {
       this.searchItem.ville_depart = data;
     });
     modal.present();
-    console.log("yaaaaaaaaaw");
+  }
+  showAddressArrive () {
+    let modal = this.modalCtrl.create(AutocompletePage);
+    modal.onDidDismiss(data => {
+      this.searchItem.ville_arrive = data;
+    });
+    modal.present();
   }
 
-  ngAfterViewInit() {
-//     var input = document.getElementById('autocomplete1').getElementsByTagName('input')[0];
-//     var options = {componentRestrictions: {country: 'us'}};
-//     new google.maps.places.Autocomplete(input);
-    var input2 = document.getElementById('autocomplete2').getElementsByTagName('input')[0];
-    var options2 = {componentRestrictions: {country: 'dz'}};
-  let auto= new google.maps.places.Autocomplete(input2);
+//   ngAfterViewInit() {
+// //     var input = document.getElementById('autocomplete1').getElementsByTagName('input')[0];
+// //     var options = {componentRestrictions: {country: 'us'}};
+// //     new google.maps.places.Autocomplete(input);
+//     var input2 = document.getElementById('autocomplete2').getElementsByTagName('input')[0];
+//     var options2 = {componentRestrictions: {country: 'dz'}};
+//   let auto= new google.maps.places.Autocomplete(input2);
    
-//   //   // this.searchItem.ville_arrive= auto.getPlace();
-//   //     this.place = auto.getPlace();
-//   //  // console.log(place);
-}
+// //   //   // this.searchItem.ville_arrive= auto.getPlace();
+// //   //     this.place = auto.getPlace();
+// //   //  // console.log(place);
+// }
 
   // ngOnInit() {
 

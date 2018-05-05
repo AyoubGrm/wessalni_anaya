@@ -11,11 +11,11 @@
 <ion-content >
     <ion-item>
         <ion-label color="primary" floating>depart de:</ion-label>
-        <ion-input type="text" [(ngModel)]="trajetItem.ville_depart" ></ion-input>
+        <ion-input (click)="showAddressDepart()" type="text" [(ngModel)]="trajetItem.ville_depart" ></ion-input>
     </ion-item>
     <ion-item>
         <ion-label color="primary" floating>arrive à:</ion-label>
-        <ion-input type="text" [(ngModel)]="trajetItem.ville_arrive"></ion-input>
+        <ion-input (click)="showAddressArrive()" type="text" [(ngModel)]="trajetItem.ville_arrive"></ion-input>
     </ion-item>
     <ion-item padding-top>
           <ion-label>Date prevue:</ion-label>
