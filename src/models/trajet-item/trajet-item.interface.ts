@@ -14,8 +14,15 @@ export interface TrajetItem {
     preference :any;
 }
 export interface SearchItem{
-    ville_depart:string;
-    ville_arrive:string;
+    ville_depart:any;
+    ville_arrive:any;
     date_prevue:DateTime;
     heure:Time;
+}
+
+export interface CommuneItem{
+    id:number;
+    code_postal:number;
+    nom:string;
+    wilaya_id:number;
 }

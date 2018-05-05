@@ -50,7 +50,7 @@ export class LoginPage {
   async loginUser(): Promise<void> {
     if (!this.loginForm.valid) {
       console.log(
-        `Form is not valid yet, current value: ${this.loginForm.value}`
+        `la forme n'est pas encore valide, valeur: ${this.loginForm.value}`
       );
     } else {
       const loading: Loading = this.loadingCtrl.create();

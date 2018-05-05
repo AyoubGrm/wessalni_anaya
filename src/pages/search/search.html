@@ -9,14 +9,25 @@
 
 
 <ion-content padding>
+    <!-- <div class="container">
+        <h1>Angular 2 + Google Maps Places Autocomplete</h1>
+        <div class="form-group">
+          <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
+        </div></div> -->
+        <!-- <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+          <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+        </agm-map> -->
+  
 
+     
+    
     <ion-item>
-        <ion-label color="primary" floating>depart de:</ion-label>
-        <ion-input type="text" [(ngModel)]="searchItem.ville_depart"></ion-input>
+        <ion-label color="primary" >depart de:</ion-label>
+        <ion-input (click)="showAddressModal()" type="text" [(ngModel)]="searchItem.ville_depart" ></ion-input>
     </ion-item>
     <ion-item>
-        <ion-label color="primary" floating>arrive à:</ion-label>
-        <ion-input type="text" [(ngModel)]="searchItem.ville_arrive" ></ion-input>
+        <ion-label color="primary" >arrive à:</ion-label>
+        <ion-input id="autocomplete2" type="text"  ></ion-input>
       </ion-item>
       <ion-item padding-top>
           <ion-label>Date prevue:</ion-label>
@@ -27,12 +38,13 @@
             <ion-datetime displayFormat="hh/mm" [(ngModel)]="searchItem.heure"></ion-datetime>
           </ion-item>
 
-          <button ion-button icon-start full (click)="search(searchItem)">
+          <button ion-button icon-start full (click)="depart(searchItem)">
               <ion-icon name="search"></ion-icon>
               Rechercher
             </button>
+            
 
-            <!-- <!-- <ion-list>
+            <!-- <ion-list>
                 <ul>
                     <li *ngFor="let item of items$ | async">
                       {{ item |json  }}

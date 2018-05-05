@@ -12,12 +12,11 @@ import { Observable } from 'rxjs/Observable';
 })
 export class MytrajetsPage {
   items: Observable <TrajetItem[]> 
-
+  user:string= firebase.auth().currentUser.email;
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private database:AngularFireDatabase) {
 
     this.items=this.database.list<TrajetItem>('trajet-list/Proposer/'+firebase.auth().currentUser.uid).valueChanges();
-    
       
   }
 
