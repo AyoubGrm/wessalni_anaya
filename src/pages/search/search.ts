@@ -26,10 +26,6 @@ export class SearchPage {
     let departde=this.modalCtrl.create(SearchresultPage,searchItem);
     departde.present();
   }
-  s(){
-    console.log(this.searchItem.ville_depart);
-    console.log(this.searchItem.ville_arrive);
-  }
   showAddressDepart () {
     let modal = this.modalCtrl.create(AutocompletePage);
     modal.onDidDismiss(data => {

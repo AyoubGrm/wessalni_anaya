@@ -11,7 +11,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthProvider } from '../../providers/auth/auth';
 import { HomePage } from '../home/home';
 import { EmailValidator } from '../../validators/email';
-//import firebase from 'firebase/app';
+import { UserMod } from '../../models/trajet-item/trajet-item.interface';
 
 @IonicPage()
 @Component({
@@ -19,6 +19,8 @@ import { EmailValidator } from '../../validators/email';
   templateUrl: 'signup.html'
 })
 export class SignupPage {
+  userMod={}as UserMod;
+  
   public signupForm: FormGroup;
   constructor(
     public navCtrl: NavController,
@@ -27,6 +29,7 @@ export class SignupPage {
     public authProvider: AuthProvider,
     formBuilder: FormBuilder
   ) {
+    
     this.signupForm = formBuilder.group({
       email: [
         '',
@@ -39,10 +42,10 @@ export class SignupPage {
     });
   }
 
-  async signupUser(): Promise<void> {
+  async signupUser(userMod:UserMod): Promise<void> {
     if (!this.signupForm.valid) {
       console.log(
-        `Form is not valid yet, current value: ${this.signupForm.value}`
+        `la forme n'est pas encore valide, valeur: ${this.signupForm.value}`
       );
     } else {
       const loading: Loading = this.loadingCtrl.create();
@@ -52,9 +55,10 @@ export class SignupPage {
       const password = this.signupForm.value.password;
 
       try {
-        await this.authProvider.signupUser(
+        await this.authProvider.signupUsers(
           email,
-          password
+          password,
+          userMod
         );
         await loading.dismiss();
         this.navCtrl.setRoot(HomePage);

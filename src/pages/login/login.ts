@@ -60,7 +60,7 @@ export class LoginPage {
       const password = this.loginForm.value.password;
 
       try {
-        const loginUser: firebase.User = await this.authProvider.loginUser(
+        const loginUser: firebase.User = await this.authProvider.loginUsers(
           email,
           password
         );

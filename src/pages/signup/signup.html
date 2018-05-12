@@ -1,36 +1,53 @@
 <ion-header>
   <ion-navbar color="primary">
-    <ion-title>Signup</ion-title>
+    <ion-title>S'inscrire</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding class="auth-page">
   <img src="http://placehold.it/300x150" alt="Banner for the signup page" />
-  <form [formGroup]="signupForm" (submit)="signupUser()" novalidate>
-    <ion-item [class.invalid]="!signupForm.controls.email.valid && signupForm.controls.email.touched"
+  
+  <ion-item>
+    <ion-label color="primary">Nom:</ion-label>
+    <ion-input type="text" [(ngModel)]="userMod.Nom" ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label color="primary">Prénom:</ion-label>
+    <ion-input type="text" [(ngModel)]="userMod.Prenom"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label color="primary">Num:</ion-label>
+    <ion-input type="tel" [(ngModel)]="userMod.Num"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label color="primary">Adresse:</ion-label>
+    <ion-input type="text" [(ngModel)]="userMod.Adresse"></ion-input>
+  </ion-item>
+  <form [formGroup]="signupForm" (submit)="signupUser(userMod)" novalidate>
+  <ion-item [class.invalid]="!signupForm.controls.email.valid && signupForm.controls.email.touched"
       [class.valid]="signupForm.controls.email.valid && signupForm.controls.email.touched">
-      <ion-label stacked>Email</ion-label>
-      <ion-input formControlName="email" type="email" placeholder="Your email address">
+      <ion-label color="primary">Email:</ion-label>
+      <ion-input formControlName="email" type="email">
       </ion-input>
     </ion-item>
     <ion-item class="error-message" *ngIf="!signupForm.controls.email.valid &&
        signupForm.controls.email.touched">
-      <p>Please enter a valid email address.</p>
+      <p>Entrer un email valide SVP!.</p>
     </ion-item>
 
     <ion-item [class.invalid]="!signupForm.controls.password.valid && signupForm.controls.password.touched"
       [class.valid]="signupForm.controls.password.valid && signupForm.controls.password.touched">
-      <ion-label stacked>Password</ion-label>
-      <ion-input formControlName="password" type="password" placeholder="Your password">
+      <ion-label color="primary">Mot de passe:</ion-label>
+      <ion-input formControlName="password" type="password">
       </ion-input>
     </ion-item>
     <ion-item class="error-message" *ngIf="!signupForm.controls.password.valid
       && signupForm.controls.password.touched">
-      <p>Your password needs more than 6 characters.</p>
+      <p>Vous devez entrer un mdp de plus de 6 caractére.</p>
     </ion-item>
 
     <button ion-button block type="submit" [disabled]="!signupForm.valid">
-      Create a new Account
+      Créer un nouveau compte
     </button>
   </form>
 </ion-content>

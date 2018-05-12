@@ -49,9 +49,9 @@ export class ResetPasswordPage {
         const loginUser: void = await this.authProvider.resetPassword(email);
         await loading.dismiss();
         const alert: Alert = this.alertCtrl.create({
-          message: 'Check your inbox for a password reset link',
+          message: 'Vérifiez votre inbox pour réinitialiser le mot de passe',
           buttons: [
-            { text: 'Cancel', role: 'cancel' },
+            { text: 'Annuler', role: 'cancel' },
             {
               text: 'Ok',
               handler: data => {

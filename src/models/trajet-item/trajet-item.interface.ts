@@ -26,3 +26,16 @@ export interface CommuneItem{
     nom:string;
     wilaya_id:number;
 }
+export class UserModel {
+    uid?: string;
+    email?: string;
+    displayName?: string;
+    photoURL?: string;
+    providerData?: any;
+  }
+export class UserMod {
+    Nom: string;
+    Prenom: string;
+    Num: string;
+    Adresse: string;
+  }

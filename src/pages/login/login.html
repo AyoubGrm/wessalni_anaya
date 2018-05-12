@@ -11,7 +11,7 @@
     <ion-item [class.invalid]="!loginForm.controls.email.valid && loginForm.controls.email.touched"
       [class.valid]="loginForm.controls.email.valid && loginForm.controls.email.touched">
       <ion-label stacked>Email</ion-label>
-      <ion-input formControlName="email" type="email" placeholder="votre adresse email">
+      <ion-input formControlName="email" type="email" placeholder="Entrer votre email">
       </ion-input>
     </ion-item>
     <ion-item class="error-message" *ngIf="!loginForm.controls.email.valid &&
@@ -31,18 +31,18 @@
     </ion-item>
 
     <button ion-button block type="submit" [disabled]="!loginForm.valid">
-      Log In
+      Se connecter
     </button>
     <button ion-button block type="submit" (click)="googlelogin()">
-      Log In with google
+      connecter avec google
     </button>
   </form>
 
   <button ion-button block clear (click)="goToSignup()">
-    Create a new account
+    Créer un nouveau compte
   </button>
 
   <button ion-button block clear (click)="goToResetPassword()">
-    I forgot my password :(
+    mode de passe oublié :(
   </button>
 </ion-content>

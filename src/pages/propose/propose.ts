@@ -29,11 +29,11 @@ export class ProposePage {
    // this.trajetItemref$.update(firebase.auth().currentUser.uid,trajetItem);
    this.trajetItemref$.push(trajetItem);
   }
-  edittrajetitem(trajetItem:TrajetItem){
-    var newPostKey = firebase.database().ref().child('trajet-list/Proposer').push().key;
-    firebase.database().ref(newPostKey).set(trajetItem);  
-    console.log(newPostKey);    
-  }
+  // edittrajetitem(trajetItem:TrajetItem){
+  //   var newPostKey = firebase.database().ref().child('trajet-list/Proposer').push().key;
+  //   firebase.database().ref(newPostKey).set(trajetItem);  
+  //   console.log(newPostKey);    
+  // }
 
   showAddressDepart () {
     let modal = this.modalCtrl.create(AutocompletePage);

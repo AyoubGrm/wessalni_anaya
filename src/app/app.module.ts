@@ -8,6 +8,8 @@ import {AngularFireModule} from 'angularfire2';
 import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 import { AgmCoreModule } from '@agm/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { ImagePicker } from '@ionic-native/image-picker';
 
 
 import { firebaseConfig } from './firebaseconf';
@@ -20,7 +22,9 @@ import { SearchPage } from '../pages/search/search';
 import { ProposePage } from '../pages/propose/propose';
 import { MytrajetsPage } from '../pages/mytrajets/mytrajets';
 import { CommDataProvider } from '../providers/comm-data/comm-data';
-import { AutocompletePage } from '../pages/autocomplete/autocomplete'
+import { AutocompletePage } from '../pages/autocomplete/autocomplete';
+import { ProfilePage } from '../pages/profile/profile';
+import { AboutPage } from '../pages/about/about';
 
 @NgModule({
   declarations: [
@@ -29,9 +33,11 @@ import { AutocompletePage } from '../pages/autocomplete/autocomplete'
     TrajetsPage,
     SearchPage,
     ProposePage,
+    ProfilePage,
     MytrajetsPage,
     SearchresultPage,
-    AutocompletePage
+    AutocompletePage,
+    AboutPage
   ],
   imports: [
 
@@ -54,16 +60,20 @@ import { AutocompletePage } from '../pages/autocomplete/autocomplete'
     TrajetsPage,
     SearchPage,
     ProposePage,
+    ProfilePage,
     SearchresultPage,
     MytrajetsPage,
-    AutocompletePage
+    AutocompletePage,
+    AboutPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    AngularFireAuth,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
     CommDataProvider,
+    ImagePicker
   ]
 })
 export class AppModule {}
