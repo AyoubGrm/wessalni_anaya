@@ -1,7 +1,6 @@
-import { Component,ElementRef, NgZone, OnInit, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { NavController,NavParams , ModalController } from 'ionic-angular';
-import { MapsAPILoader } from '@agm/core';
 
 import {  SearchItem } from '../../models/trajet-item/trajet-item.interface';
 import { SearchresultPage } from '../searchresult/searchresult';
@@ -18,8 +17,6 @@ export class SearchPage {
     place:any;
    constructor(public navCtrl: NavController, 
     public navParams: NavParams,
-    private mapsAPILoader: MapsAPILoader,
-    private ngZone: NgZone ,
     public modalCtrl: ModalController) { }
 
   depart(searchItem:SearchItem){

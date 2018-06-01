@@ -5,6 +5,7 @@ import firebase from 'firebase';
 
 import { TrajetItem } from '../../models/trajet-item/trajet-item.interface';
 import { AutocompletePage } from '../autocomplete/autocomplete';
+import { Observable } from 'rxjs/Observable';
 
 
 @IonicPage()
@@ -13,8 +14,10 @@ import { AutocompletePage } from '../autocomplete/autocomplete';
   templateUrl: 'propose.html',
 })
 export class ProposePage {
+  items: Observable<TrajetItem[]>;
   trajetItem = {} as TrajetItem;
   trajetItemref$: AngularFireList <TrajetItem> 
+  trajetItemref1$: AngularFireList <TrajetItem> 
   constructor(
     private database:AngularFireDatabase,
     public navCtrl: NavController,
@@ -22,18 +25,24 @@ export class ProposePage {
     public modalCtrl: ModalController) 
    
     {
-    this.trajetItemref$ =this.database.list('trajet-list/Proposer/'+firebase.auth().currentUser.uid);
+      this.trajetItemref$ =this.database.list('trajet-list/Proposer/'+firebase.auth().currentUser.uid);
+      this.trajetItemref1$ =this.database.list('trajet-list/Rechercher');
+    
     }
 
   addtrajetitem(trajetItem:TrajetItem){
    // this.trajetItemref$.update(firebase.auth().currentUser.uid,trajetItem);
+   trajetItem.idchauf=firebase.auth().currentUser.uid;
    this.trajetItemref$.push(trajetItem);
+   this.trajetItemref1$.push(trajetItem);
   }
+  
   // edittrajetitem(trajetItem:TrajetItem){
   //   var newPostKey = firebase.database().ref().child('trajet-list/Proposer').push().key;
   //   firebase.database().ref(newPostKey).set(trajetItem);  
   //   console.log(newPostKey);    
   // }
+
 
   showAddressDepart () {
     let modal = this.modalCtrl.create(AutocompletePage);

@@ -10,14 +10,14 @@
 
 <ion-content padding>
       <!-- <ul>
-        <li *ngFor="let item of items | async">
-           {{ item | json }}
+        <li *ngFor="let item of a | async">
+           {{ item |json }}
         </li>
       </ul> -->
 
       <h2> {{user}} </h2>
   <ion-list>
-    <ion-item *ngFor="let item of items | async">
+    <ion-item *ngFor="let item of items | async" (click)="selectrajetItem(item)">
       
        Depart de : {{item.ville_depart}} <br>
        Arrivé à : {{item.ville_arrive}}<br>

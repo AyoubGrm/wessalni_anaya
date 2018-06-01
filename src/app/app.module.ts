@@ -10,7 +10,7 @@ import { AgmCoreModule } from '@agm/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { ImagePicker } from '@ionic-native/image-picker';
-
+import { OneSignal } from '@ionic-native/onesignal';
 
 import { firebaseConfig } from './firebaseconf';
 import { MyApp } from './app.component';
@@ -21,10 +21,11 @@ import { SearchresultPage } from '../pages/searchresult/searchresult';
 import { SearchPage } from '../pages/search/search';
 import { ProposePage } from '../pages/propose/propose';
 import { MytrajetsPage } from '../pages/mytrajets/mytrajets';
-import { CommDataProvider } from '../providers/comm-data/comm-data';
 import { AutocompletePage } from '../pages/autocomplete/autocomplete';
 import { ProfilePage } from '../pages/profile/profile';
 import { AboutPage } from '../pages/about/about';
+import { UpdateTrajetPage } from '../pages/update-trajet/update-trajet';
+import { FirebaseServiceProvider } from '../providers/firebase-service/firebase-service';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { AboutPage } from '../pages/about/about';
     MytrajetsPage,
     SearchresultPage,
     AutocompletePage,
-    AboutPage
+    AboutPage,
+    UpdateTrajetPage
   ],
   imports: [
 
@@ -64,7 +66,8 @@ import { AboutPage } from '../pages/about/about';
     SearchresultPage,
     MytrajetsPage,
     AutocompletePage,
-    AboutPage
+    AboutPage,
+    UpdateTrajetPage
   ],
   providers: [
     StatusBar,
@@ -72,8 +75,9 @@ import { AboutPage } from '../pages/about/about';
     AngularFireAuth,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
-    CommDataProvider,
-    ImagePicker
+    ImagePicker,
+    FirebaseServiceProvider,
+    OneSignal
   ]
 })
 export class AppModule {}

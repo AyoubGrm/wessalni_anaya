@@ -6,6 +6,7 @@ import firebase from 'firebase';
 import { firebaseConfig } from './firebaseconf';
 import { HomePage } from '../pages/home/home';
 import { Unsubscribe } from '@firebase/util';
+import { OneSignal } from '@ionic-native/onesignal';
 
 @Component({
   templateUrl: 'app.html'
@@ -16,7 +17,8 @@ export class MyApp {
   constructor(
     platform: Platform,
     statusBar: StatusBar,
-    splashScreen: SplashScreen
+    splashScreen: SplashScreen,
+    private oneSignal:OneSignal
   ) {
     firebase.initializeApp(firebaseConfig);
 
@@ -35,6 +37,20 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
-    });
+
+      this.oneSignal.startInit('66722b88-63fc-4a80-9832-2df96aa60e54', '966188057856');
+
+       this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.InAppAlert);
+
+       this.oneSignal.handleNotificationReceived().subscribe(() => {
+ // do something when notification is received
+                  });
+
+        this.oneSignal.handleNotificationOpened().subscribe(() => {
+  // do something when a notification is opened
+                  });
+
+        this.oneSignal.endInit();
+       });
   }
 }
