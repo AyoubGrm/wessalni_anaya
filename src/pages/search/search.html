@@ -9,19 +9,8 @@
 
 
 <ion-content padding>
-    <!-- <div class="container">
-        <h1>Angular 2 + Google Maps Places Autocomplete</h1>
-        <div class="form-group">
-          <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
-        </div></div> -->
-        <!-- <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
-          <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
-        </agm-map> -->
   
-
-     
-    
-    <ion-item>
+      <ion-item>
         <ion-label color="primary" >depart de:</ion-label>
         <ion-input (click)="showAddressDepart()" type="text" [(ngModel)]="searchItem.ville_depart" ></ion-input>
     </ion-item>
@@ -42,46 +31,5 @@
               <ion-icon name="search"></ion-icon>
               Rechercher
             </button>
-
-            <!-- <ion-list>
-                <ul>
-                    <li *ngFor="let item of items$ | async">
-                      {{ item |json  }}
-                    </li>
-                  </ul>
-              </ion-list> 
-                 <ion-list>
-                  <ion-item *ngFor="let item of items | async">
-                    
-                     Depart de : {{item.ville_depart}} <br>
-                     Arrivé à : {{item.ville_arrive}}<br>
-                     Date prevue : {{item.date_prevue}}<br>
-                     à : {{item.heure}}<br>
-                     Place Dispo : {{item.place}}<br>
-                     Prix /place : {{item.prix}}<br>
-                     plus d'info : {{item.plusinfo}}<br>
-                     Preference : {{item.preference}} <br>
-                </ion-item>
-                </ion-list> 
-
-                <h1>Firebase widgets!</h1>
-                <div *ngIf="items$ | async; let items; else loading">
-                    <ion-list>
-                        <ion-item *ngFor="let item of items">
-
-                        Depart de : {{item.payload.val().ville_depart}} <br>
-                        Arrivé à : {{item.payload.val().ville_arrive}}<br>
-                        Date prevue : {{item.payload.val().date_prevue}}<br>
-                        à : {{item.payload.val().heure}}<br>
-                        Place Dispo : {{item.payload.val().place}}<br>
-                        Prix /place : {{item.payload.val().prix}}<br>
-                        plus d'info : {{item.payload.val().plusinfo}}<br>
-                        Preference : {{item.payload.val().preference}} <br>
-                      
-                      </ion-item>
-                    </ion-list>
-                  <div *ngIf="items.length === 0">No results, try clearing filters</div>
-                </div>
-                <ng-template #loading>Loading&hellip;</ng-template> -->
                 
 </ion-content>

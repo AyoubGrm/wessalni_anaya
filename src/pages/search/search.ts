@@ -38,23 +38,4 @@ export class SearchPage {
     modal.present();
   }
 
-//   ngAfterViewInit() {
-// //     var input = document.getElementById('autocomplete1').getElementsByTagName('input')[0];
-// //     var options = {componentRestrictions: {country: 'us'}};
-// //     new google.maps.places.Autocomplete(input);
-//     var input2 = document.getElementById('autocomplete2').getElementsByTagName('input')[0];
-//     var options2 = {componentRestrictions: {country: 'dz'}};
-//   let auto= new google.maps.places.Autocomplete(input2);
-   
-// //   //   // this.searchItem.ville_arrive= auto.getPlace();
-// //   //     this.place = auto.getPlace();
-// //   //  // console.log(place);
-// }
-  // ngOnInit() {
-  //   this.searchControl = new FormControl();
-  //   this.mapsAPILoader.load().then(() => {
-  //     let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement);
-  
-  //   });
-  // }
 }
