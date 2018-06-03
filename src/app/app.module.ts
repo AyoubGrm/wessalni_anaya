@@ -24,8 +24,10 @@ import { MytrajetsPage } from '../pages/mytrajets/mytrajets';
 import { AutocompletePage } from '../pages/autocomplete/autocomplete';
 import { ProfilePage } from '../pages/profile/profile';
 import { AboutPage } from '../pages/about/about';
+import { ReservePage } from '../pages/reserve/reserve';
 import { UpdateTrajetPage } from '../pages/update-trajet/update-trajet';
 import { FirebaseServiceProvider } from '../providers/firebase-service/firebase-service';
+import { AddpsgPage } from '../pages/addpsg/addpsg';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import { FirebaseServiceProvider } from '../providers/firebase-service/firebase-
     SearchresultPage,
     AutocompletePage,
     AboutPage,
+    ReservePage,
+    AddpsgPage,
     UpdateTrajetPage
   ],
   imports: [
@@ -67,6 +71,8 @@ import { FirebaseServiceProvider } from '../providers/firebase-service/firebase-
     MytrajetsPage,
     AutocompletePage,
     AboutPage,
+    ReservePage,
+    AddpsgPage,
     UpdateTrajetPage
   ],
   providers: [

@@ -6,7 +6,7 @@
 
 
 <ion-content padding class="auth-page">
-  <img src="../../assets/imgs/download.png" alt="Banner for the login page" padding-left/>
+  <img src="../../assets/imgs/wessalni.png" alt="Wessalni" padding-left/>
   <form [formGroup]="loginForm" (submit)="loginUser()" novalidate>
     <ion-item [class.invalid]="!loginForm.controls.email.valid && loginForm.controls.email.touched"
       [class.valid]="loginForm.controls.email.valid && loginForm.controls.email.touched">
@@ -32,9 +32,6 @@
 
     <button ion-button block type="submit" [disabled]="!loginForm.valid">
       Se connecter
-    </button>
-    <button ion-button block type="submit" (click)="googlelogin()">
-      connecter avec google
     </button>
   </form>
 

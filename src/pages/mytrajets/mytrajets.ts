@@ -6,12 +6,15 @@ import { TrajetItem } from '../../models/trajet-item/trajet-item.interface';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import { UpdateTrajetPage } from '../update-trajet/update-trajet';
+import { ReservePage } from '../reserve/reserve';
 @IonicPage()
 @Component({
   selector: 'page-mytrajets',
   templateUrl: 'mytrajets.html',
 })
 export class MytrajetsPage {
+  itemsRef2: AngularFireList<{}>;
+  itemsRef1: AngularFireList<{}>;
   itemsRef: AngularFireList<any>;
   items$:any;
   a:any;
@@ -26,6 +29,7 @@ export class MytrajetsPage {
     // this.items$=this.database.list<TrajetItem>('trajet-list/Proposer/'+firebase.auth().currentUser.uid);
     // this.items=this.items$.valueChanges()  ;
     this.itemsRef = this.db.list('trajet-list/Proposer/'+firebase.auth().currentUser.uid);
+    this.itemsRef1 = this.db.list('trajet-list/Rechercher');
     // Use snapshotChanges().map() to store the key
     this.items = this.itemsRef.snapshotChanges().
     map(changes => 
@@ -57,6 +61,14 @@ export class MytrajetsPage {
       title: 'Mes trajets',
       buttons: [
         {
+          text: 'Consulter',
+          role: 'destructive',
+          handler: () => {
+            let departde=this.modalCtrl.create(ReservePage,trajetItem);
+            departde.present();
+            //console.log(trajetItem);
+          }
+          },{
           text: 'Modifier',
           role: 'destructive',
           handler: () => {
@@ -71,6 +83,7 @@ export class MytrajetsPage {
           // console.log(trajetItem);
             console.log(trajetItem.key);
            this.itemsRef.remove(trajetItem.key);
+           this.itemsRef1.remove(trajetItem.key);
           }
         },{
           text: 'Cancel',

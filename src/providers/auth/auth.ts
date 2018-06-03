@@ -24,7 +24,7 @@ export class AuthProvider {
 
       await firebase
         .database()
-        .ref(`/userProfile/${newUser.uid}/info`)
+        .ref(`/userProfile/${newUser.uid}`)
         .set(userMod);
       return newUser;
     } catch (error) {

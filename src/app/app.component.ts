@@ -37,7 +37,7 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
-
+      if (platform.is('cordova')){
       this.oneSignal.startInit('66722b88-63fc-4a80-9832-2df96aa60e54', '966188057856');
 
        this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.InAppAlert);
@@ -51,6 +51,7 @@ export class MyApp {
                   });
 
         this.oneSignal.endInit();
+      }
        });
   }
 }

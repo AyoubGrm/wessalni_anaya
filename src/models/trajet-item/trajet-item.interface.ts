@@ -21,12 +21,6 @@ export interface SearchItem{
     heure:Time;
 }
 
-export interface CommuneItem{
-    id:number;
-    code_postal:number;
-    nom:string;
-    wilaya_id:number;
-}
 export class UserModel {
     uid?: string;
     email?: string;
@@ -35,6 +29,7 @@ export class UserModel {
     providerData?: any;
   }
 export class UserMod {
+    key?:any;
     Nom: string;
     Prenom: string;
     Num: string;
